@@ -69,6 +69,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+#made custom register stuff
+REST_AUTH_REGISTER_SERIALIZERS = {
+        'REGISTER_SERIALIZER': 'path.to.RegisterSerializer',
+}
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -76,6 +81,8 @@ SITE_ID = 1
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+
+#making sure username is not a requirement when login in
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
@@ -83,6 +90,8 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
+#enabling old password field when changing password
+OLD_PASSWORD_FIELD_ENABLED = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
