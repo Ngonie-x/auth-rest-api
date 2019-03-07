@@ -7,7 +7,6 @@ from rest_framework import viewsets
 from .serializers import HouseSerializer
 from rest_framework import filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-#from . import permissions
 
 
 
