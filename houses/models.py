@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.utils import timezone
 
 
 
@@ -35,3 +36,12 @@ class HouseModel(models.Model):
     def __str__(self):
         return self.address
     
+
+class Review(models.Model):
+    house = models.ForeignKey('HouseModel', related_name = 'comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    create_date = models.DateTimeField(default = timezone.now())
+
+    def __str__(self):
+        return self.text
